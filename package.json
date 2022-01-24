@@ -1,5 +1,5 @@
 {
-  "name": "parking",
+  "name": "lapdstops",
   "private": true,
   "scripts": {
     "dev": "next dev",

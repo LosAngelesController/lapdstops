@@ -69,7 +69,7 @@ const formulaForZoom = () => {
 
 const map = new mapboxgl.Map({
   container: divRef.current, // container ID
-  style: 'mapbox://styles/comradekyler/ckxslkfs7kemm15mpb8700qoq', // style URL
+  style: 'mapbox://styles/comradekyler/ckyrsd7w30zm615lqzzpkrpbv', // style URL
   center: [-118.41,34], // starting position [lng, lat]
   zoom: formulaForZoom() // starting zoom
 });
@@ -272,7 +272,7 @@ map.addControl(new mapboxgl.NavigationControl());
 name="description"
 content="Heatmap of Top Parking Fine Locations in Los Angeles."
 />
-<title>Parking Tickets Los Angeles Interactive Map - Mejia For Controller</title>
+<title>LAPD 2021 Stops Los Angeles Interactive Map - Mejia For Controller</title>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site" content="@kennethmejiala"/>
 <meta name="twitter:creator" content="@kennethmejiala"/>
@@ -304,7 +304,7 @@ content="Heatmap of Top Parking Fine Locations in Los Angeles."
     >
 
 
-  <div className='titleBox  fixed mt-[3.8em] ml-2 md:mt-[3.8em] md:ml-3 break-words'>2021 Parking Tickets LA</div>
+  <div className='titleBox  fixed mt-[3.8em] ml-2 md:mt-[3.8em] md:ml-3 break-words'>LAPD Stops 2021</div>
 
   <div
     className={`geocoder md:hidden mt-[7.5em] xs:text-sm sm:text-base md:text-lg`} id='geocoder'></div>
