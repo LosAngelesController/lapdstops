@@ -21,6 +21,13 @@ import * as turf from '@turf/turf'
 
 const Home: NextPage = () => {
 
+  function pwnMapboxLogo() {
+    var querylogo = document.querySelector('#__next > div > div.map-container.w-full.h-full.mapboxgl-map > div:nth-child(6) > div.mapboxgl-ctrl-bottom-left > div > a');
+
+    if (querylogo) {
+      querylogo.remove()
+    }
+  }
 
   function checkHideOrShowTopRightGeocoder() {
     var toprightbox = document.querySelector(".mapboxgl-ctrl-top-right")
@@ -198,6 +205,8 @@ geocoder.on('select', function(object:any){
 window.addEventListener('resize',  handleResize);  
 
 map.on('load', () => {
+  pwnMapboxLogo()
+
   const layers = map.getStyle().layers;
   console.log('layers', layers)
 
@@ -206,14 +215,14 @@ map.on('load', () => {
 
     map.addSource('lapdstops', {
       'type': 'vector',
-      'url': 'mapbox://comradekyler.90yosohj'
+      'url': 'mapbox://comradekyler.5nspav9m'
       });
     map.addLayer(
       {
       'id': 'lapdstops-heat',
       'type': 'heatmap',
       'source': 'lapdstops',
-'source-layer': 'LAPD_Stops_2021_by_Race-7cm7l6',
+'source-layer': 'byracelapdstops2021min-0qnui2',
       'paint': {
       // Increase the heatmap weight based on frequency and property magnitude
       'heatmap-weight': [
@@ -222,7 +231,7 @@ map.on('load', () => {
           "sqrt",
           [
             "to-number",
-            ["get", "# of Stops"]
+            ["get", "stops"]
           ]
         ],
         20
