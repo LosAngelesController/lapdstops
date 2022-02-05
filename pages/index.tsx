@@ -22,7 +22,7 @@ import * as turf from '@turf/turf'
 const Home: NextPage = () => {
 
   function pwnMapboxLogo() {
-    var querylogo = document.querySelector('#__next > div > div.map-container.w-full.h-full.mapboxgl-map > div:nth-child(6) > div.mapboxgl-ctrl-bottom-left > div > a');
+    var querylogo = document.querySelector('mapboxgl-ctrl-logo');
 
     if (querylogo) {
       querylogo.remove()
@@ -396,10 +396,10 @@ content="Heatmap of Top Parking Fine Locations in Los Angeles."
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site" content="@kennethmejiala"/>
 <meta name="twitter:creator" content="@kennethmejiala"/>
-<meta name="twitter:title" content="Parking Tickets Los Angeles Interactive Map"/>
-<meta name="twitter:description" content="View interactive heatmap of 2021 parking fines in LA. See most ticketed parking spots and explore data."/>
-<meta name="description" content="View interactive heatmap of 2021 parking fines in LA. See most ticketed parking spots and explore data." />
-<meta name="twitter:image" content="https://ParkingTicketsLA.mejiaforcontroller.com/preview.png"/>
+<meta name="twitter:title" content="LAPD 2021 Stops Los Angeles Interactive Map"/>
+<meta name="twitter:description" content="LAPD Stops, placeholder text for Twitter Desc"/>
+<meta name="description" content="LAPD Stops, placeholder text for Desc" />
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/7539174/152625992-45038c54-fa7c-4d3e-84d7-dc54542477bc.jpg"/>
 <link rel="icon" href="https://mejiaforcontroller.com/wp-content/uploads/2020/12/cropped-favicon-1-32x32.png" sizes="32x32"/>
 <link rel="icon" href="https://mejiaforcontroller.com/wp-content/uploads/2020/12/cropped-favicon-1-192x192.png" sizes="192x192"/>
 <link rel="apple-touch-icon" href="https://mejiaforcontroller.com/wp-content/uploads/2020/12/cropped-favicon-1-180x180.png"/>
@@ -410,7 +410,7 @@ content="Heatmap of Top Parking Fine Locations in Los Angeles."
 <meta property="og:type"               content="website" />
 <meta property="og:title"              content="Parking Tickets Los Angeles Interactive Map" />
 <meta property="og:description"        content="View interactive heatmap of 2021 parking fines in LA. See most ticketed parking spots and explore data." />
-<meta property="og:image"              content="https://ParkingTicketsLA.mejiaforcontroller.com/preview.png" />
+<meta property="og:image"              content="https://user-images.githubusercontent.com/7539174/152625992-45038c54-fa7c-4d3e-84d7-dc54542477bc.jpg" />
 
 <script defer={true} src="https://helianthus.mejiaforcontroller.com/index.js"></script>
       </Head>

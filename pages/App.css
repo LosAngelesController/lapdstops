@@ -111,3 +111,21 @@ scroll-margin-right: 3px;
 .mapboxgl-ctrl-logo {
   display: 'none'
 }
+
+.mapboxgl-ctrl-attrib-inner  {
+ 
+  background: #000000aa;
+  color: #ffffff;
+}
+
+.mapboxgl-ctrl-bottom-right {
+  background: #000000ee;
+}
+
+.mapboxgl-ctrl-attrib-inner > a  {
+  color: #dddddd;
+}
+
+.mapboxgl-ctrl-logo {
+  display: 'none' !important
+}
