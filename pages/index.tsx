@@ -67,12 +67,15 @@ const formulaForZoom = () => {
   }
 }
 
-const map = new mapboxgl.Map({
+var mapset:any = {
   container: divRef.current, // container ID
-  style: 'mapbox://styles/comradekyler/ckyrsd7w30zm615lqzzpkrpbv', // style URL
+ // style: 'mapbox://styles/comradekyler/ckyrsd7w30zm615lqzzpkrpbv', // style URL
+ style: 'mapbox://styles/comradekyler/ckz3k4qyp000815osuyr0hdfx?optimize=true',
   center: [-118.41,34], // starting position [lng, lat]
-  zoom: formulaForZoom() // starting zoom
-});
+  zoom: formulaForZoom() // starting zoom,
+}
+
+const map = new mapboxgl.Map(mapset);
 
 var rtldone=false;
 
@@ -195,11 +198,119 @@ geocoder.on('select', function(object:any){
 window.addEventListener('resize',  handleResize);  
 
 map.on('load', () => {
+  const layers = map.getStyle().layers;
+  console.log('layers', layers)
+
+    // Add a geojson point source.
+    // Heatmap layers also work with a vector tile source.
+
+    map.addSource('lapdstops', {
+      'type': 'vector',
+      'url': 'mapbox://comradekyler.90yosohj'
+      });
+    map.addLayer(
+      {
+      'id': 'lapdstops-heat',
+      'type': 'heatmap',
+      'source': 'lapdstops',
+'source-layer': 'LAPD_Stops_2021_by_Race-7cm7l6',
+      'paint': {
+      // Increase the heatmap weight based on frequency and property magnitude
+      'heatmap-weight': [
+        "/",
+        [
+          "sqrt",
+          [
+            "to-number",
+            ["get", "# of Stops"]
+          ]
+        ],
+        20
+      ],
+      // Increase the heatmap color weight weight by zoom level
+      // heatmap-intensity is a multiplier on top of heatmap-weight
+      'heatmap-intensity': [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        0,
+        0.05,
+        7.74,
+        0.2,
+        9.17,
+        0.5,
+        11.55,
+        1.5,
+        12.75,
+        1.8,
+        16.19,
+        2,
+        22,
+        2
+      ],
+      // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
+      // Begin color ramp at 0-stop with a 0-transparancy color
+      // to create a blur-like effect.
+      'heatmap-color': [
+        "interpolate",
+        ["linear"],
+        ["heatmap-density"],
+        0,
+        "rgba(0, 0, 255, 0)",
+        0.1,
+        "royalblue",
+        0.3,
+        "cyan",
+        0.67,
+        "hsl(60, 100%, 50%)",
+        1,
+        "red"
+      ],
+      // Adjust the heatmap radius by zoom level
+      'heatmap-radius': [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        0,
+        1,
+        5.2,
+        1,
+        10.01,
+        5,
+        11.59,
+        8,
+        13.7,
+        15,
+        16.02,
+        50,
+        16.76,
+        50,
+        22,
+        80
+      ],
+      // Transition from heatmap to circle layer by zoom level
+      'heatmap-opacity': [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        0,
+        0.69,
+        12.11,
+        0.7,
+        15,
+        0.64,
+        22,
+        0.52
+      ]
+      }
+      },
+      'building-outline'
+      );
 
 if (! document.querySelector(".mapboxgl-ctrl-top-right > .mapboxgl-ctrl-geocoder")) {
   map.addControl(
     geocoder2
-    ); 
+    );
 }
 
 

@@ -8,6 +8,11 @@ const navigationPayroll = [
     'name': "List",
     'url': "https://docs.google.com/spreadsheets/d/197-LIu3K9lBEFU8DD0uEmaQnbJUiTpCH9itwMA1aCs0/edit?usp=sharing",
     'newtab': true
+  },
+  {
+    'name': "Mejia for Controller",
+    'url': "https://mejiaforcontroller.com",
+    'newtab': true
   }
 ]
 
@@ -20,7 +25,7 @@ function Nav() {
                      <ActiveLink activeClassName="text-gray-100 py-3 px-6 block hover:text-green-300 focus:outline-none text-green-300 border-b-2 font-medium border-green-300" href={item.url}
                      key={itemIdx}
                      >
-                     <a className="text-gray-100 py-3 px-6 block hover:text-green-300 focus:outline-none"
+                     <a className="text-gray-100 py-3 px-6 block hover:text-green-300 focus:outline-none underline"
                           target={`${item.newtab === true ? "_blank" : ""}`}
                      >
                                                  {item.name}

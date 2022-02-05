@@ -22,7 +22,7 @@ try {
     site: 'datadoghq.com',
     service:'lapdstops',
     // Specify a version number to identify the deployed version of your application in Datadog 
-    // version: '1.0.0',
+    version: '1.0.1',
     sampleRate: 100,
     trackInteractions: true,
     defaultPrivacyLevel: 'allow'
