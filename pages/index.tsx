@@ -63,7 +63,7 @@ var mapglobal:any = null;
 const Home: NextPage = () => {
 
 
-  var [filterOpen,setFilterOpen] = useState(true)
+  var [filterOpen,setFilterOpen] = useState(false)
 
   
   var [filterrace,setfilterrace] = useState('all')
@@ -542,6 +542,8 @@ text-lg px-2 py-1  bg-opacity-90
     className={`geocoder md:hidden mt-[7.3em] xs:text-sm sm:text-base md:text-lg`} id='geocoder'></div>
 </div>
 
+
+
 {
   filterOpen === false && (
     <div className='mt-[9.4em] md:mt-[3em] fixed z-50'>
@@ -554,7 +556,7 @@ text-lg px-2 py-1  bg-opacity-90
   onClick={e => {
     setFilterOpen(true)
   }}
-  className='border-2 border-truegray-500 rounded-full z-20 ml-2 md:mt-[3.6em] md:ml-3 px-2 py-1 bg-opacity-100'>Filter by Race</button>
+  className='border-2 border-truegray-100 rounded-full z-20 ml-2 md:mt-[3.6em]  md:ml-3 px-2 py-1 md:px-3 bg-opacity-100'>Filter by Race</button>
 </div>
   )
 }
@@ -568,15 +570,21 @@ text-lg px-2 py-1  bg-opacity-90
         color: '#efefef',
         borderColor: '#d1d5db'
       }}
-      className='font-semibold rounded-none border-t-2 md:border-t-1 md:border-b-2 md:border-x-2 rounded-full z-20 fixed bottom-0 md:max-w-screen-sm md:static md:max-w-16 md:block md:mt-[3.6em] md:ml-3 px-2 py-1 bg-opacity-100'>
+      className=' font-semibold rounded-none border-t-2 md:border-t-1 md:border-b-2 md:border-x-2 rounded-full z-20 fixed bottom-0 md:max-w-screen-sm md:static md:max-w-16 md:block md:mt-[3.6em] md:ml-3 px-2 py-1 bg-opacity-100'>
         
-      {
+       <div className='flex flex-row h-6'>
+
+    <div className='grow'>
+    {
         filterrace === 'all' && (
         <span>
            423,917 Total Stops
         </span>
         )
       }
+
+
+
 
 {
         filterrace !== 'all' && (
@@ -585,12 +593,29 @@ text-lg px-2 py-1  bg-opacity-90
         </span>
         )
       }
-  <br/>
+    </div>
+
+    <div className=''
+    onClick={e => {
+      setFilterOpen(false)
+    }}
+    >
+<svg className='w-8 h-8 text-white' viewBox="0 0 24 24">
+    <path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+</svg>
+
+</div>
+
+      </div>
+
+
+ 
 
   <span className='font-semibold'>Filter by Race</span>
 <br/>
-      <div className=' space-y-2'>
-      <button className={`px-2 rounded-xl border-white mr-2 ${filterrace === 'all' ? 'border-mejito border-2' : "border"}`}
+      <div className='flex flex-row flex-wrap gap-1 md:gap-1.5
+      '>
+      <button className={`px-2 rounded-xl border-white  ${filterrace === 'all' ? 'border-mejito border-2' : "border"}`}
            onClick={e => {
              setfilterrace('all')
              clearraceaction('hi')
@@ -605,7 +630,7 @@ text-lg px-2 py-1  bg-opacity-90
         raceoptions.map((eachItem) => (
            <button
            key={eachItem.code}
-           className={`px-2 rounded-xl border-white mr-2  ${filterrace === eachItem.code ? 'border-mejito border-2' : "border"}`}
+           className={`px-2 rounded-xl border-white  ${filterrace === eachItem.code ? 'border-mejito border-2' : "border"}`}
            onClick={e => {
              setfilterrace(eachItem.code)
              setfiltercount(eachItem.count)
