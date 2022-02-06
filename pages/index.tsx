@@ -535,11 +535,15 @@ content="Heatmap of Top Parking Fine Locations in Los Angeles."
       className='flex-initial h-content outsideTitle flex-col flex z-50'
     >
 <div className='titleBox  fixed mt-[3.5em] ml-1.5 md:mt-[3.7em] md:ml-3 break-words
-text-lg px-2 py-1  bg-opacity-90 text-base md:text-md
-'>LAPD Stops 2021</div>
+text-lg px-2 py-1  bg-opacity-90 text-base md:text-md font-bold
+'><span>
+  LAPD Stops 2021</span></div>
 
   <div
-    className={`geocoder mt-[6.5em] -ml-0.5 md:hidden mt-[7.3em] xs:text-sm sm:text-base md:text-lg`} id='geocoder'></div>
+  onClick={e => {
+    setFilterOpen(false)
+  }}
+    className={`geocoder -ml-0.5 md:hidden mt-[6.6em] xs:text-sm sm:text-base md:text-lg`} id='geocoder'></div>
 </div>
 
 
@@ -566,11 +570,11 @@ text-lg px-2 py-1  bg-opacity-90 text-base md:text-md
     <div className='mt-[9.4em] md:mt-[3em] fixed z-50 md:ml-0'>
       <div 
        style={{
-        background: '#212121',
         color: '#efefef',
         borderColor: '#d1d5db'
       }}
-      className=' font-semibold rounded-none border-t-2 md:border-t-1 md:border-b-2 md:border-x-2 rounded-full z-20 fixed bottom-0 md:max-w-screen-sm md:static md:max-w-16 md:block md:mt-[3.6em] md:ml-3 px-2 py-1 bg-opacity-100'>
+      className='bg-truegray-900 font-semibold rounded-none border-t-2 md:border-t-1 md:border-b-2 md:border-x-2 rounded-full z-20 
+      fixed bottom-0 md:max-w-screen-sm md:static md:max-w-16 md:block md:mt-[3.6em] md:ml-3 px-2 py-1 md:bg-opacity-90'>
         
        <div className='flex flex-row h-6'>
 
