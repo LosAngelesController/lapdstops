@@ -534,12 +534,12 @@ content="Heatmap of Top Parking Fine Locations in Los Angeles."
   <div
       className='flex-initial h-content outsideTitle flex-col flex z-50'
     >
-<div className='titleBox  fixed mt-[3.4em] ml-2 md:mt-[3.4em] md:ml-3 break-words
-text-lg px-2 py-1  bg-opacity-90
+<div className='titleBox  fixed mt-[3.5em] ml-1.5 md:mt-[3.7em] md:ml-3 break-words
+text-lg px-2 py-1  bg-opacity-90 text-base md:text-md
 '>LAPD Stops 2021</div>
 
   <div
-    className={`geocoder md:hidden mt-[7.3em] xs:text-sm sm:text-base md:text-lg`} id='geocoder'></div>
+    className={`geocoder mt-[6.5em] -ml-0.5 md:hidden mt-[7.3em] xs:text-sm sm:text-base md:text-lg`} id='geocoder'></div>
 </div>
 
 
