@@ -619,7 +619,7 @@ text-lg px-2 py-1  bg-opacity-90 text-base md:text-md font-bold
 <br/>
       <div className='flex flex-row flex-wrap gap-1 md:gap-1.5
       '>
-      <button className={`px-2 rounded-xl border-white  ${filterrace === 'all' ? 'border-mejito border-2' : "border"}`}
+      <button className={`text-sm md:text-base px-2 rounded-xl border-white  ${filterrace === 'all' ? 'border-mejito border-2' : "border"}`}
            onClick={e => {
              setfilterrace('all')
              clearraceaction('hi')
@@ -634,7 +634,7 @@ text-lg px-2 py-1  bg-opacity-90 text-base md:text-md font-bold
         raceoptions.map((eachItem) => (
            <button
            key={eachItem.code}
-           className={`px-2 rounded-xl border-white  ${filterrace === eachItem.code ? 'border-mejito border-2' : "border"}`}
+           className={`text-sm md:text-base px-2 rounded-xl border-white  ${filterrace === eachItem.code ? 'border-mejito border-2' : "border"}`}
            onClick={e => {
              setfilterrace(eachItem.code)
              setfiltercount(eachItem.count)
