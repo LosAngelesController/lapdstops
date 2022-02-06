@@ -68,19 +68,19 @@
 .titleBox {
  /* background-color: #212121ee;
   color: #fff;*/
-  background-color: #41ffceee;
-  color: #000000;
-  padding: 6px 12px;
+ color: #111827;
+  background: #efefef;
   font-family: monospace;
   z-index: 1;
   width:fit-content;
-  border-radius: 4px;  font-size: 16px;
+  font-weight: 700;
+  font-weight: 700;
+  border-radius: 4px;
 }
 
 .outsideTitle {
   /* background-color: #212121ee;
    color: #fff;*/
-   color: #ffffff;
    font-family: monospace;
    z-index: 1;
    position: absolute;

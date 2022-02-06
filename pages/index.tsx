@@ -8,7 +8,7 @@ import MapboxLanguage from '@mapbox/mapbox-gl-language';
 
 import Nav from '../components/nav'
 
-import React, {useEffect} from 'react';
+import React, {useEffect,  useState} from 'react';
  
 const councildistricts = require('./CouncilDistricts.json')
 const citybounds = require('./citybounds.json')
@@ -19,7 +19,81 @@ import * as turf from '@turf/turf'
 
        import { assertDeclareExportAllDeclaration } from '@babel/types';
 
+var raceoptions = [
+  {
+    code: 'h',
+    title: "Hispanic/Latino",
+    count: 212760
+  }, {
+    code: 'b',
+    title: "Black/African American",
+    count: 111714
+  },
+  {
+    code: 'w',
+    title: "White",
+    count: 68181
+  },
+  {
+    code: 'm',
+    title: "Middle Eastern / South Asian",
+    count: 17480
+  },
+  {
+    code: 'a',
+    title: "Asian",
+    count:  12656
+  },
+  {
+    code: 'p',
+    title: "Pacific Islander",
+    count: 866
+  },
+  {
+    code: 'n',
+    title: 'Native American',
+    count: 260
+  }
+]
+var total = 423917;
+
+var mapglobal:any = null;
+
 const Home: NextPage = () => {
+
+
+  var [filterOpen,setFilterOpen] = useState(true)
+
+  
+  var [filterrace,setfilterrace] = useState('all')
+  
+  var [filtercount,setfiltercount] = useState(0)
+
+  
+
+
+
+  function filterraceaction (racecode:string)  {
+    if (mapglobal) {
+      console.log('filter by:"' + racecode + '"')
+    mapglobal.setFilter('lapdstops-heat', [
+      "all",
+      [
+        "match",
+        ["get", "﻿race"],
+        [racecode],
+        true,
+        false
+      ]
+    ]);
+    }
+  }
+  
+  function clearraceaction (racecode:string) {
+    if (mapglobal) {
+    mapglobal.setFilter('lapdstops-heat', ['!=', 'race', 'helloworld']);
+    }
+  }
 
   function pwnMapboxLogo() {
     var querylogo = document.querySelector('mapboxgl-ctrl-logo');
@@ -51,10 +125,23 @@ const Home: NextPage = () => {
   
   }
 
+  var population = {
+    h: 1992409,
+    w: 1129956,
+    n: 6374,
+    a: 454688,
+    p: 5103,
+    o: 1476
+  }
+
+  var totalpop = 3979537
+
 
   const divRef:any = React.useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    
+
         console.log('map div', divRef)
 
         if (divRef.current) {
@@ -74,6 +161,7 @@ const formulaForZoom = () => {
   }
 }
 
+
 var mapset:any = {
   container: divRef.current, // container ID
  // style: 'mapbox://styles/comradekyler/ckyrsd7w30zm615lqzzpkrpbv', // style URL
@@ -84,6 +172,9 @@ var mapset:any = {
 
 const map = new mapboxgl.Map(mapset);
 
+mapglobal = map
+
+ 
 var rtldone=false;
 
 try {
@@ -204,11 +295,41 @@ geocoder.on('select', function(object:any){
 
 window.addEventListener('resize',  handleResize);  
 
+  var parkingmapcolor:any =  [
+    "interpolate",
+    ["linear"],
+    ["heatmap-density"],
+    0,
+    "rgba(0, 0, 255, 0)",
+    0.1,
+    "royalblue",
+    0.3,
+    "cyan",
+    0.67,
+    "hsl(60, 100%, 50%)",
+    1,
+    "red"
+  ]
+
+  var lakerscolor: any = [
+    "interpolate",
+    ["linear"],
+    ["heatmap-density"],
+    0,
+    "rgba(0, 0, 255, 0)",
+    0.1,
+    "rgba(254, 253, 55, 30)",
+    0.4,
+    "#faed27",
+    0.75,
+    "#b026ff"
+  ]
 map.on('load', () => {
+
   pwnMapboxLogo()
 
   const layers = map.getStyle().layers;
-  console.log('layers', layers)
+ // console.log('layers', layers)
 
     // Add a geojson point source.
     // Heatmap layers also work with a vector tile source.
@@ -260,21 +381,7 @@ map.on('load', () => {
       // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
       // Begin color ramp at 0-stop with a 0-transparancy color
       // to create a blur-like effect.
-      'heatmap-color': [
-        "interpolate",
-        ["linear"],
-        ["heatmap-density"],
-        0,
-        "rgba(0, 0, 255, 0)",
-        0.1,
-        "royalblue",
-        0.3,
-        "cyan",
-        0.67,
-        "hsl(60, 100%, 50%)",
-        1,
-        "red"
-      ],
+      'heatmap-color': parkingmapcolor,
       // Adjust the heatmap radius by zoom level
       'heatmap-radius': [
         "interpolate",
@@ -316,11 +423,15 @@ map.on('load', () => {
       'building-outline'
       );
 
+
+
 if (! document.querySelector(".mapboxgl-ctrl-top-right > .mapboxgl-ctrl-geocoder")) {
   map.addControl(
     geocoder2
     );
 }
+
+
 
 
  checkHideOrShowTopRightGeocoder()
@@ -384,7 +495,7 @@ map.addControl(new mapboxgl.NavigationControl());
 
   return (
   
-  <div className='flex flex-col h-screen w-screen absolute'>
+  <div className='flex flex-col h-full w-screen absolute'>
       <Head>
      <meta charSet="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
@@ -406,10 +517,10 @@ content="Heatmap of Top Parking Fine Locations in Los Angeles."
 <meta name="msapplication-TileImage" content="https://mejiaforcontroller.com/wp-content/uploads/2020/12/cropped-favicon-1-270x270.png"/>
 
 
-<meta property="og:url"                content="https://ParkingTicketsLA.mejiaforcontroller.com" />
+<meta property="og:url"                content="https://lapdstops.mejiaforcontroller.com" />
 <meta property="og:type"               content="website" />
-<meta property="og:title"              content="Parking Tickets Los Angeles Interactive Map" />
-<meta property="og:description"        content="View interactive heatmap of 2021 parking fines in LA. See most ticketed parking spots and explore data." />
+<meta property="og:title"              content="LAPD 2021 Stops Los Angeles Interactive Map" />
+<meta property="og:description"        content="LAPD Stops, placeholder text for Desc" />
 <meta property="og:image"              content="https://user-images.githubusercontent.com/7539174/152625992-45038c54-fa7c-4d3e-84d7-dc54542477bc.jpg" />
 
 <script defer={true} src="https://helianthus.mejiaforcontroller.com/index.js"></script>
@@ -422,13 +533,96 @@ content="Heatmap of Top Parking Fine Locations in Los Angeles."
   <div
       className='flex-initial h-content outsideTitle flex-col flex z-50'
     >
-
-
-  <div className='titleBox  fixed mt-[3.8em] ml-2 md:mt-[3.8em] md:ml-3 break-words'>LAPD Stops 2021</div>
+<div className='titleBox  fixed mt-[3.4em] ml-2 md:mt-[3.4em] md:ml-3 break-words
+text-lg px-2 py-1  bg-opacity-90
+'>LAPD Stops 2021</div>
 
   <div
-    className={`geocoder md:hidden mt-[7.5em] xs:text-sm sm:text-base md:text-lg`} id='geocoder'></div>
+    className={`geocoder md:hidden mt-[7.3em] xs:text-sm sm:text-base md:text-lg`} id='geocoder'></div>
 </div>
+
+{
+  filterOpen === false && (
+    <div className='mt-[9.4em] md:mt-[3em] fixed z-50'>
+  <button
+  style={{
+    background: '#212128dd',
+    color: '#efefef'
+  }}
+
+  onClick={e => {
+    setFilterOpen(true)
+  }}
+  className='border-2 border-truegray-500 rounded-full z-20 ml-2 md:mt-[3.6em] md:ml-3 px-2 py-1 bg-opacity-100'>Filter by Race</button>
+</div>
+  )
+}
+
+{
+  filterOpen === true && (
+    <div className='mt-[9.4em] md:mt-[3em] fixed z-50 md:ml-0'>
+      <div 
+       style={{
+        background: '#212121',
+        color: '#efefef',
+        borderColor: '#d1d5db'
+      }}
+      className='font-semibold rounded-none border-t-2 md:border-t-1 md:border-b-2 md:border-x-2 rounded-full z-20 fixed bottom-0 md:max-w-screen-sm md:static md:max-w-16 md:block md:mt-[3.6em] md:ml-3 px-2 py-1 bg-opacity-100'>
+        
+      {
+        filterrace === 'all' && (
+        <span>
+           423,917 Total Stops
+        </span>
+        )
+      }
+
+{
+        filterrace !== 'all' && (
+        <span>
+         {filtercount.toLocaleString()} of 423,917 Stops ({((filtercount/total)  * 100).toFixed(2) + '%'})
+        </span>
+        )
+      }
+  <br/>
+
+  <span className='font-semibold'>Filter by Race</span>
+<br/>
+      <div className=' space-y-2'>
+      <button className={`px-2 rounded-xl border-white mr-2 ${filterrace === 'all' ? 'border-mejito border-2' : "border"}`}
+           onClick={e => {
+             setfilterrace('all')
+             clearraceaction('hi')
+           }}
+           >
+             {
+               <span>All</span>
+             }
+           </button>
+
+      {
+        raceoptions.map((eachItem) => (
+           <button className={`px-2 rounded-xl border-white mr-2  ${filterrace === eachItem.code ? 'border-mejito border-2' : "border"}`}
+           onClick={e => {
+             setfilterrace(eachItem.code)
+             setfiltercount(eachItem.count)
+
+             filterraceaction(eachItem.code)
+           }}
+           >
+             {
+               eachItem.title
+             }
+           </button>
+  ))
+      }
+
+      </div>
+
+      </div>
+</div>
+  )
+}
 
 <div ref={divRef} style={{
 

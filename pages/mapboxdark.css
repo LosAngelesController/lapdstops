@@ -147,7 +147,7 @@
     }
 
      div.mapboxgl-control-container > div.mapboxgl-ctrl-bottom-right > div {
-         display: hidden;
+         display: none;
      }
 
 .map-container {
@@ -155,5 +155,14 @@
 }
 
 .mapboxgl-ctrl-logo {
-    display: 'none'
+    display: none !important
+}
+
+.mapboxgl-ctrl-geocoder {
+  border-width: 1.2px;
+  border-color: #8f9296;
+}
+
+.mapboxgl-ctrl-attrib {
+  display: none !important
 }
