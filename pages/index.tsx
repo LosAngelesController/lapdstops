@@ -19,6 +19,7 @@ import * as turf from '@turf/turf'
 
        import { assertDeclareExportAllDeclaration } from '@babel/types';
 
+
 var raceoptions = [
   {
     code: 'h',
@@ -602,7 +603,9 @@ text-lg px-2 py-1  bg-opacity-90
 
       {
         raceoptions.map((eachItem) => (
-           <button className={`px-2 rounded-xl border-white mr-2  ${filterrace === eachItem.code ? 'border-mejito border-2' : "border"}`}
+           <button
+           key={eachItem.code}
+           className={`px-2 rounded-xl border-white mr-2  ${filterrace === eachItem.code ? 'border-mejito border-2' : "border"}`}
            onClick={e => {
              setfilterrace(eachItem.code)
              setfiltercount(eachItem.count)
