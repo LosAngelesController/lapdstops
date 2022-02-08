@@ -502,15 +502,15 @@ map.addControl(new mapboxgl.NavigationControl());
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
 <meta
 name="description"
-content="View LAPD stops in 2021. Filter also by Race."
+content="Heatmap of LAPD stops in 2021, with Filter options by Race."
 />
 <title>LAPD 2021 Stops Los Angeles Interactive Map - Mejia For Controller</title>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site" content="@kennethmejiala"/>
 <meta name="twitter:creator" content="@kennethmejiala"/>
 <meta name="twitter:title" content="LAPD 2021 Stops Los Angeles Interactive Map"/>
-<meta name="twitter:description" content="View LAPD stops in 2021. Filter also by Race."/>
-<meta name="description" content="View LAPD stops in 2021. Filter also by Race." />
+<meta name="twitter:description" content="Heatmap of LAPD stops in 2021, Filter stops by Race."/>
+<meta name="description" content="Heatmap of LAPD stops in 2021, filter stops by Race." />
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/7539174/152625992-45038c54-fa7c-4d3e-84d7-dc54542477bc.jpg"/>
 <link rel="icon" href="https://mejiaforcontroller.com/wp-content/uploads/2020/12/cropped-favicon-1-32x32.png" sizes="32x32"/>
 <link rel="icon" href="https://mejiaforcontroller.com/wp-content/uploads/2020/12/cropped-favicon-1-192x192.png" sizes="192x192"/>
@@ -521,7 +521,7 @@ content="View LAPD stops in 2021. Filter also by Race."
 <meta property="og:url"                content="https://lapdstops.mejiaforcontroller.com" />
 <meta property="og:type"               content="website" />
 <meta property="og:title"              content="LAPD 2021 Stops Los Angeles Interactive Map" />
-<meta property="og:description"        content="Heatmap of LAPD stops in 2021, with Filter options by Race." />
+<meta property="og:description"        content="Heatmap of LAPD stops in 2021, Filter stops by Race." />
 <meta property="og:image"              content="https://user-images.githubusercontent.com/7539174/152625992-45038c54-fa7c-4d3e-84d7-dc54542477bc.jpg" />
 
 <script defer={true} src="https://helianthus.mejiaforcontroller.com/index.js"></script>
