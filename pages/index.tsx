@@ -514,7 +514,7 @@ content="Heatmap of LAPD stops in 2021, with Filter options by Race."
 <meta name="twitter:image" content="https://dev.lapdstops.mejiaforcontroller.com/previewmin.png"/>
 <link rel="icon" href="https://mejiaforcontroller.com/wp-content/uploads/2020/12/cropped-favicon-1-32x32.png" sizes="32x32"/>
 <link rel="icon" href="https://mejiaforcontroller.com/wp-content/uploads/2020/12/cropped-favicon-1-192x192.png" sizes="192x192"/>
-<link rel="apple-touch-icon" href="https://mejiaforcontroller.com/wp-content/uploads/2020/12/cropped-favicon-1-180x180.png"/>
+<link rel="apple-touch-icon" href="https://mejiaforcontroller.com/wp-content/uploads/2020/12/cropped-favicon-1-180x180.png"/> 
 <meta name="msapplication-TileImage" content="https://mejiaforcontroller.com/wp-content/uploads/2020/12/cropped-favicon-1-270x270.png"/>
 
 
@@ -543,7 +543,7 @@ text-lg px-2 py-1  bg-opacity-90 text-base md:text-md font-bold
   onClick={e => {
     setFilterOpen(false)
   }}
-    className={`geocoder -ml-0.5 md:hidden mt-[5.5em] md:mt-[6.6em] xs:text-sm sm:text-base md:text-lg`} id='geocoder'></div>
+    className={`geocoder -ml-0.5 md:hidden  mt-[6.7em] sm:mt-[5.5em] md:mt-[6.6em] xs:text-sm sm:text-base md:text-lg`} id='geocoder'></div>
 </div>
 
 
