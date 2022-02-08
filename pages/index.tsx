@@ -511,7 +511,7 @@ content="Heatmap of LAPD stops in 2021, with Filter options by Race."
 <meta name="twitter:title" content="LAPD 2021 Stops Los Angeles Interactive Map"/>
 <meta name="twitter:description" content="Heatmap of LAPD stops in 2021, Filter stops by Race."/>
 <meta name="description" content="Heatmap of LAPD stops in 2021, filter stops by Race." />
-<meta name="twitter:image" content="https://user-images.githubusercontent.com/7539174/152625992-45038c54-fa7c-4d3e-84d7-dc54542477bc.jpg"/>
+<meta name="twitter:image" content="https://dev.lapdstops.mejiaforcontroller.com/previewmin.png"/>
 <link rel="icon" href="https://mejiaforcontroller.com/wp-content/uploads/2020/12/cropped-favicon-1-32x32.png" sizes="32x32"/>
 <link rel="icon" href="https://mejiaforcontroller.com/wp-content/uploads/2020/12/cropped-favicon-1-192x192.png" sizes="192x192"/>
 <link rel="apple-touch-icon" href="https://mejiaforcontroller.com/wp-content/uploads/2020/12/cropped-favicon-1-180x180.png"/>
