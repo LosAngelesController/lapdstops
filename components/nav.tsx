@@ -6,7 +6,7 @@ const navigationPayroll = [
   },
   {
     'name': "List",
-    'url': "https://docs.google.com/spreadsheets/d/197-LIu3K9lBEFU8DD0uEmaQnbJUiTpCH9itwMA1aCs0/edit?usp=sharing",
+    'url': "https://docs.google.com/spreadsheets/d/19ThkfJSJKEqR1wX9fFdTiLyXOQU-3VF_3GryY1bxmNM/edit#gid=1700256488",
     'newtab': true
   },
   {
