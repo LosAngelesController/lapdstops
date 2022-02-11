@@ -1,9 +1,10 @@
 import ActiveLink from './ActiveLink'
 const navigationPayroll = [
-  {
+  /*{
     'name': "Map",
-    'url': "/"
-  },
+    'url': "/",
+    'newtab': true
+  },*/
   {
     'name': "List",
     'url': "https://docs.google.com/spreadsheets/d/19ThkfJSJKEqR1wX9fFdTiLyXOQU-3VF_3GryY1bxmNM/edit#gid=1700256488",
@@ -12,6 +13,11 @@ const navigationPayroll = [
   {
     'name': "Mejia for Controller",
     'url': "https://mejiaforcontroller.com",
+    'newtab': true
+  },
+  {
+    'name': "Donate",
+    'url': "https://mejiaforcontroller.com/donate",
     'newtab': true
   }
 ]
