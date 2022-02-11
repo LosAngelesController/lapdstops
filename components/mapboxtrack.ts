@@ -8,6 +8,14 @@ export function generateIdempotency() {
   })}`;
 }
 
+export function generateIdempotencyShort() {
+    return `${Date.now()}${randomstring.generate({
+      length: 6,
+      charset: 'alphanumeric',
+      capitalization: 'lowercase'
+    })}`;
+  }
+
 var sessionid = generateIdempotency();
 var initDate = Date.now();
 
@@ -23,6 +31,8 @@ interface optionsinterface {
 
 export function uploadMapboxTrack(options:optionsinterface) {
     
+    var calctimesincestart = Date.now() - initDate;
+
 //requests from https://helianthus.mejiaforcontroller.com/
 fetch('https://helios.mejiaforcontroller.com/mapbox', {
     mode: 'cors',
@@ -33,9 +43,10 @@ fetch('https://helios.mejiaforcontroller.com/mapbox', {
       },
     body: JSON.stringify({
         sessionid: sessionid,
+        eventid: generateIdempotencyShort(),
         mapname: options.mapname,
         eventtype: options.eventtype,
-        timesincestart: Date.now() - initDate,
+        timesincestart: calctimesincestart,
         globallat: options.globallat,
         globallng: options.globallng,
         globalzoom: options.globalzoom,
