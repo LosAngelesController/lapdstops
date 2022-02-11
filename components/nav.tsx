@@ -17,7 +17,7 @@ const navigationPayroll = [
   },
   {
     'name': "Donate",
-    'url': "https://mejiaforcontroller.com/donate",
+    'url': "https://mejiaforcontroller.com/donate/?fromlapdmap=true",
     'newtab': true
   }
 ]
