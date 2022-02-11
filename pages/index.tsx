@@ -9,6 +9,8 @@ import MapboxLanguage from '@mapbox/mapbox-gl-language';
 import Nav from '../components/nav'
 
 import React, {useEffect,  useState} from 'react';
+
+import { uploadMapboxTrack } from '../components/mapboxtrack';
  
 const councildistricts = require('./CouncilDistricts.json')
 const citybounds = require('./citybounds.json')
@@ -490,6 +492,45 @@ map.addControl(new mapboxgl.NavigationControl());
   checkHideOrShowTopRightGeocoder()
 });
 
+map.on('dragstart', (e) => {
+uploadMapboxTrack({
+  mapname: 'lapdstops',
+  eventtype: 'dragstart',
+  globallng: map.getCenter().lng,
+  globallat: map.getCenter().lat,
+  globalzoom: map.getZoom()
+})
+})
+
+map.on('dragend', (e) => {
+  uploadMapboxTrack({
+    mapname: 'lapdstops',
+    eventtype: 'dragend',
+    globallng: map.getCenter().lng,
+    globallat: map.getCenter().lat,
+    globalzoom: map.getZoom()
+  })
+  })
+
+  map.on('zoomstart', (e) => {
+    uploadMapboxTrack({
+      mapname: 'lapdstops',
+      eventtype: 'dragstart',
+      globallng: map.getCenter().lng,
+      globallat: map.getCenter().lat,
+      globalzoom: map.getZoom()
+    })
+    })
+
+    map.on('zoomend', (e) => {
+      uploadMapboxTrack({
+        mapname: 'lapdstops',
+        eventtype: 'zoomend',
+        globallng: map.getCenter().lng,
+        globallat: map.getCenter().lat,
+        globalzoom: map.getZoom()
+      })
+      })
        
 
   }, [])
