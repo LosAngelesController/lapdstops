@@ -563,7 +563,7 @@ content="Heatmap of LAPD stops in 2021, with Filter options by Race."
 <meta property="og:type"               content="website" />
 <meta property="og:title"              content="LAPD 2021 Stops Los Angeles Interactive Map" />
 <meta property="og:description"        content="Heatmap of LAPD stops in 2021, Filter stops by Race." />
-<meta property="og:image"              content="https://user-images.githubusercontent.com/7539174/152625992-45038c54-fa7c-4d3e-84d7-dc54542477bc.jpg" />
+<meta property="og:image"              content="https://dev.lapdstops.mejiaforcontroller.com/previewmin.png" />
 
 <script defer={true} src="https://helianthus.mejiaforcontroller.com/index.js"></script>
       </Head>
