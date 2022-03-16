@@ -62,7 +62,19 @@ var total = 423917;
 
 var mapglobal:any = null;
 
+
+import {DisclaimerPopup} from '../components/Disclaimer'
+
 const Home: NextPage = () => {
+  let [disclaimerOpen, setDisclaimerOpen] = useState(false)
+
+  function closeModal() {
+    setDisclaimerOpen(false)
+  }
+
+  function openModal() {
+    setDisclaimerOpen(true)
+  }
 
 
   var [filterOpen,setFilterOpen] = useState(false)
@@ -701,7 +713,12 @@ text-lg px-2 py-1  bg-opacity-90 text-base md:text-md font-bold
 
 }} className="map-container w-full h-full " />
         
-     
+        <DisclaimerPopup
+        open={disclaimerOpen}
+        openModal={openModal}
+        closeModal={closeModal}
+        />
+        
      <div className={`absolute md:mx-auto z-9 bottom-2 left-1 md:left-1/2 md:transform md:-translate-x-1/2`}>
 <a href='https://MejiaForController.com/' target="_blank" rel="noreferrer">
     
