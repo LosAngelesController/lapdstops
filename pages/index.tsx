@@ -341,7 +341,14 @@ window.addEventListener('resize',  handleResize);
   ]
 map.on('load', () => {
 
-  pwnMapboxLogo()
+  pwnMapboxLogo();
+
+  var getmapboxlogo:any = document.querySelector('.mapboxgl-ctrl-logo')
+
+if (getmapboxlogo) {
+  getmapboxlogo.remove()
+}
+
 
   const layers = map.getStyle().layers;
  // console.log('layers', layers)
