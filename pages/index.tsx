@@ -564,10 +564,10 @@ map.on('dragend', (e) => {
 name="description"
 content="Heatmap of LAPD stops in 2021, with Filter options by Race."
 />
-<title>LAPD 2021 Stops Los Angeles Interactive Map - Mejia For Controller</title>
+<title>LAPD 2021 Stops Los Angeles Interactive Map - Los Angeles Controller</title>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:site" content="@kennethmejiala"/>
-<meta name="twitter:creator" content="@kennethmejiala"/>
+<meta name="twitter:site" content="@lacontroller"/>
+<meta name="twitter:creator" content="@lacontroller"/>
 <meta name="twitter:title" content="LAPD 2021 Stops Los Angeles Interactive Map"/>
 <meta name="twitter:description" content="Heatmap of LAPD stops in 2021, Filter stops by Race."/>
 <meta name="description" content="Heatmap of LAPD stops in 2021, filter stops by Race." />
@@ -727,10 +727,10 @@ text-lg px-2 py-1  bg-opacity-90 text-base md:text-md font-bold
         />
         
      <div className={`absolute md:mx-auto z-9 bottom-2 left-1 md:left-1/2 md:transform md:-translate-x-1/2`}>
-<a href='https://MejiaForController.com/' target="_blank" rel="noreferrer">
+<a href='https://controller.lacity.gov' target="_blank" rel="noreferrer">
     
   
-                  <img src='/mejia-watermark-smol.png' className='h-9 md:h-10' alt="Kenneth Mejia for LA City Controller Logo"/>
+                  <img src='https://lacontroller.io/images/KennethMejia-logo-white-elect.png' className='h-9 md:h-10' alt="Kenneth Mejia LA City Controller Logo"/>
                   
     </a>
   
